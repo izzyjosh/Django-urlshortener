@@ -19,9 +19,12 @@ def shorturl(request):
 			Url.objects.create(
 			      url=url, 
 			      short_url=short_url
-		        )
+		       )
+			messages.info(request, f"{request.META['HTTP_HOST']}/{short_url}")
 		else:
-			pass         
-		messages.info(request, f"{request.META['HTTP_HOST']}/{short_url}")	
+			u = Url.objects.get(url=url)  
+			messages.info(request, f"{request.META['HTTP_HOST']}/{u}")
+			
+	
 		
 	return render(request, "url.html")
