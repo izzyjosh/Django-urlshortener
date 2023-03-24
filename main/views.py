@@ -26,6 +26,6 @@ def shorturl(request):
 	return render(request, "url.html")
 	
 	
-def main_url(request, str):
-	u = Url.objects.get(short_url=str)
+def main_url(request, short_str):
+	u = Url.objects.get(short_url=short_str)
 	return redirect(u.url)
