@@ -22,7 +22,7 @@ def shorturl(request):
 		if not Url.objects.filter(url=url).exists():
 			Url.objects.get_or_create(url=url, short_url=short_url)
 		
-			messages.info(request, f"{request.META['HTTP_HOST']}/{main_url.short_url}")
+			messages.info(request, f"{request.META['HTTP_HOST']}/{short_url}")
 		
 		#if the url already exist it will display the existed short url for that url 
 		else:
